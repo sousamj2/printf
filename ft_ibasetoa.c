@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:17:11 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/24 11:10:05 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 16:25:13 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ char	*ft_ibasetoa(long long n, int n_base)
 	long long	power;
 
 	n_long = n;
-	retval = ft_ibasetoa_mem(&n_long, &neg, &nchars);
+	retval = ft_ibasetoa_mem(&n_long, &neg, &nchars, n_base);
 	if (retval == NULL)
 		return (NULL);
 	power = ft_get_max_power_base(nchars - neg - 1, n_long, n_base);

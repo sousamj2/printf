@@ -6,7 +6,7 @@
 #    By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/05 11:20:42 by marisous          #+#    #+#              #
-#    Updated: 2026/11/24 11:32:33 by marisous         ###   ########.fr        #
+#    Updated: 2026/11/24 17:26:17 by marisous         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -17,18 +17,9 @@ NAME	= libprintf.a
 
 
 # As a 3 part project, the files were originally distributed 
-SRC_FOLDER_1	= libft/
-SRC_FOLDER_2	= libft/
-SRC_FOLDER_3	= ./
-SRCS1	=	$(addsuffix .c, $(addprefix ft_, $(PART_1)))
-SRCS2	=	$(addsuffix .c, $(addprefix ft_, $(PART_2)))
-SRCS3	=	$(addsuffix .c, $(addprefix ft_, $(PART_3)))
-SRCS	=	$(addprefix $(SRC_FOLDER_1)/, $(SRCS1))	\
-# 		$(addprefix $(SRC_FOLDER_2)/, $(SRCS2)) \
-# 		$(addprefix $(SRC_FOLDER_3)/, $(SRCS3))
-OBJS	= 	$(addprefix $(OBJ_FOLDER)/, 	$(SRCS1:.c=.o) \
-# 						$(SRCS2:.c=.o) \
-# 						$(SRCS3:.c=.o))
+SRC_FOLDER_1	= libft
+SRC_FOLDER_2	= libft
+SRC_FOLDER_3	= .
 
 
 OBJ_FOLDER	= objs
@@ -40,12 +31,21 @@ PART_1	= 	strlen memset bzero toupper \
 
 PART_2	= 	itoa putchar_fd putstr_fd 
 
-PART_3	= 	ibasetoa max printf putchars_n_fd putstr_fd_n striter
+PART_3	= 	ibasetoa max putchars_n_fd putstr_fd_n striter printf
 
 # SRCS	=	$(addsuffix .c, \
 # 			$(addprefix ft_, $(PART_1) $(PART_2) $(PART_3)))
 
 # OBJS	= 	$(addprefix $(OBJ_FOLDER)/, 	$(SRCS:.c=.o))
+SRCS1	=	$(addsuffix .c, $(addprefix ft_, $(PART_1)))
+SRCS2	=	$(addsuffix .c, $(addprefix ft_, $(PART_2)))
+SRCS3	=	$(addsuffix .c, $(addprefix ft_, $(PART_3)))
+SRCS	=	$(addprefix $(SRC_FOLDER_1)/, $(SRCS1))	\
+		$(addprefix $(SRC_FOLDER_2)/, $(SRCS2)) \
+		$(addprefix $(SRC_FOLDER_3)/, $(SRCS3))
+OBJS	= 	$(addprefix $(OBJ_FOLDER)/, 	$(SRCS1:.c=.o) \
+						$(SRCS2:.c=.o) \
+						$(SRCS3:.c=.o))
 
 all: $(NAME)
 
