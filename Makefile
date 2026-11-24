@@ -6,12 +6,13 @@
 #    By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/05 11:20:42 by marisous          #+#    #+#              #
-#    Updated: 2026/11/24 17:26:17 by marisous         ###   ########.fr        #
+#    Updated: 2026/11/24 18:02:24 by marisous         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror $(addprefix -I, $(INC_FOLDERS))
+CFLAGS	+= -g -O0
 
 NAME	= libprintf.a
 
@@ -29,7 +30,7 @@ OBJ_FOLDER	= objs
 PART_1	= 	strlen memset bzero toupper \
 		tolower strnstr atoi calloc isdigit atoi
 
-PART_2	= 	itoa putchar_fd putstr_fd 
+PART_2	= 	itoa putchar_fd putstr_fd strncmp	
 
 PART_3	= 	ibasetoa max putchars_n_fd putstr_fd_n striter printf
 
@@ -77,6 +78,9 @@ fclean: clean
 
 re: fclean all
 
+run: main.c $(NAME)
+	$(CC) $(CFLAGS) $^ -o run
+
 .PHONY: all clean fclean re test test_% norm unitests eclean
 
 test:
@@ -101,12 +105,6 @@ eclean:
 	rm -fv compile_commands.json
 	bear -- make
 	$(MAKE) fclean
-
-unitests:
-	$(MAKE) -C unitests/ VALG=0 QUIET=1
-
-test_%: 
-	$(MAKE) -C unitests/ $*
 
 # Use flag to compile for francinette at home
 # CFLAGS	+= -gdwarf-4

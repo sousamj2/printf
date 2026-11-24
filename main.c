@@ -18,7 +18,7 @@
 int main(void)
 {
     printf("Main with no args.\n");
-    ft_prinft("Test\n");
+    ft_prinft("Test %d\n",1);
 
     return (0);
 }
