@@ -6,30 +6,15 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:17:11 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/24 10:59:33 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 11:10:05 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 
-/**
- * @brief Allocates buffer and calculates metadata (digits, sign) for itoa.
- *
- * @param n_long Pointer to long value of number (made positive if negative).
- * @param negative Pointer to int set to 1 if n was negative, 0 otherwise.
- * @param nchars Pointer to size_t to receive total required buffer size.
- * @return Allocated string buffer with '-' set if negative, or NULL on failure.
- */
 static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, int n_base);
 
-/**
- * @brief Computes highest base-10 power corresponding to most significant digit.
- *
- * @param ndigits Number of digits in the integer.
- * @param long_n Positive number value.
- * @return The base 10 divisor matching the most significant digit.
- */
-static long	ft_get_max_power_base(size_t ndigits, long long long_n, int n_base);
+static long	long ft_get_max_power_base(size_t ndigits, long long long_n, int n_base);
 
 static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, int n_base)
 {

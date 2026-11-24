@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 15:36:15 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/23 11:18:28 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 11:34:11 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,24 @@
 # include <unistd.h>
 # include <stdint.h>
 
+
+/**
+ * @brief Tests for a digit (0 through 9).
+ *
+ * @param c Character to test.
+ * @return Non-zero if the character is a digit, 0 otherwise.
+ */
+int				ft_isdigit(int c);
+
+/**
+ * @brief Compares at most the first n bytes of strings s1 and s2.
+ *
+ * @param s1 First string to compare.
+ * @param s2 Second string to compare.
+ * @param n Maximum number of bytes to compare.
+ * @return Difference s1[i] - s2[i] at the first mismatch, or 0 if identical.
+ */
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 /**
  * @brief Allocates and returns a string representing the integer received as
