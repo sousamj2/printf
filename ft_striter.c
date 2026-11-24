@@ -6,19 +6,15 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:25:52 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/23 21:26:04 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 10:52:03 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void (*f)(char*))
+void	ft_striter(char *s, int (*f)(int))
 {
-	int		index;
-
-	index = 0;
 	while (*s != '\0')
 	{
-		f(s);
-		index++;
+		*s = f(*s);
 		s++;
 	}
 }

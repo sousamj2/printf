@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 18:14:36 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/23 18:16:39 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 10:57:39 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,6 @@ int ft_max(int a, int b)
 	if (a < b)
 		return (b);
 	else
-		return (a)
+		return (a);
 }
 

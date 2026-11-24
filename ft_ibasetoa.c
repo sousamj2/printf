@@ -6,11 +6,11 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:17:11 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/23 20:58:19 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 10:59:33 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
 /**
  * @brief Allocates buffer and calculates metadata (digits, sign) for itoa.
@@ -29,7 +29,7 @@ static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, i
  * @param long_n Positive number value.
  * @return The base 10 divisor matching the most significant digit.
  */
-static long	ft_get_max_power(size_t ndigits, long long long_n, int n_base);
+static long	ft_get_max_power_base(size_t ndigits, long long long_n, int n_base);
 
 static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, int n_base)
 {
@@ -59,7 +59,7 @@ static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, i
 	return (retval);
 }
 
-static long long	ft_get_max_power(size_t ndigits, long long long_n, int n_base)
+static long long	ft_get_max_power_base(size_t ndigits, long long long_n, int n_base)
 {
 	long long	power;
 	size_t		ichar;
@@ -88,7 +88,7 @@ char	*ft_ibasetoa(long long n, int n_base)
 	retval = ft_ibasetoa_mem(&n_long, &neg, &nchars);
 	if (retval == NULL)
 		return (NULL);
-	power = ft_get_max_power(nchars - neg - 1, n_long);
+	power = ft_get_max_power_base(nchars - neg - 1, n_long, n_base);
 	if (neg)
 		retval++;
 	while (power > 0)

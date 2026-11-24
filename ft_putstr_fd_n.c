@@ -6,11 +6,11 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 18:14:23 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/23 18:14:27 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/24 10:53:50 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft/libft.h"
 
 void	ft_putstr_fd_n(const char *s, int fd, int n)
 {
