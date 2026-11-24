@@ -16,7 +16,7 @@ int ft_prinft(const char *format, ...)
 {
 	va_list	ap;
 	va_list	*p_ap;
-	int		retval;
+    int retval = 0;
 	/* %[argument$][flags][width][.precision][length modifier]conversion */
 	/* "-+0# " for bonus flags */
 	/* (minimum) width.precision */
@@ -29,15 +29,19 @@ int ft_prinft(const char *format, ...)
 		{
 			ft_putchar_fd('%', 1);
 			format++;
+			retval++;
+        }
+		else if (*format != '%')
+		{
+            ft_putchar_fd(*format, 1);
+			retval++;
 		}
-		else if (*format == '%')		
-			ft_putchar_fd(*format, 1);
 		else
-			ft_handle_vargs(format, p_ap);
+			retval += ft_handle_vargs(format, p_ap);
 		format++;
 	}
 	va_end(ap);
-	return (0);
+	return (retval);
 }
 
 int	ft_handle_vargs(const char *format, va_list *ap)
@@ -53,7 +57,7 @@ int	ft_handle_vargs(const char *format, va_list *ap)
     fconf.opt = '\0';
     ptr_fc = &fconf;
 	retval = 1;
-	next = ft_next_conv(format, ptr_fc);
+	next = (char *) ft_next_conv(format, ptr_fc);
 	if (fconf.opt == 'c')
 		ft_putchar_fd(*next, 1);
 	else if (fconf.opt == 's')
