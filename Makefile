@@ -6,7 +6,7 @@
 #    By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/05 11:20:42 by marisous          #+#    #+#              #
-#    Updated: 2026/11/26 14:52:55 by marisous         ###   ########.fr        #
+#    Updated: 2026/11/26 16:18:04 by marisous         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -14,7 +14,7 @@ CC	= cc
 CFLAGS	= -Wall -Wextra $(addprefix -I, $(INC_FOLDERS))
 CFLAGS	+= -g -O0
 
-NAME	= libprintf.a
+NAME	= libftprintf.a
 
 SRC_FOLDER_1	= libft
 SRC_FOLDER_2	= .
@@ -68,20 +68,14 @@ test:
 	@echo OBJS=$(OBJS)
 	@echo SRCS=$(SRCS)
 
+SHELL := /bin/bash
+
 norm:
-	norminette $(SRCS) libft.h | grep -v ": OK!" # ; status=$${PIPESTATUS[0]} ; exit $$status	
+	norminette $(SRCS) libft/libft.h ft_printf.h | grep -v ": OK!" ; status=$${PIPESTATUS[0]} ; exit $$status	
 	@echo Norminette: all OK!
-	@echo "Number of functions: mine: 43 | theirs: $$(ls -1 ft*.c | wc -l)"
-	@echo "Static functions: mine: 7 | theirs: $$(grep -l '\bstatic\b' *.c | wc -l)"
-	@echo "Includes: $$(grep include $(SRCS) | grep -v libft.h)"
-	@for f in *.c; do \
-		count=$$(ctags -x --c-kinds=f "$$f" | wc -l); \
-		if [ "$$count" -gt 1 ]; then \
-			printf "%-20s %s\n" "$$f" "$$count"; \
-		fi; \
-	done
 
 eclean:
 	rm -fv compile_commands.json
 	bear -- make
 	$(MAKE) fclean
+

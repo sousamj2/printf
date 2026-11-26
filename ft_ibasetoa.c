@@ -6,17 +6,20 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 19:17:11 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/24 16:25:13 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 15:58:03 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 
-static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, int n_base);
+static char			*ft_ibasetoa_mem(long long *n_long, int *negative,
+						size_t *nchars, int n_base);
 
-static long	long ft_get_max_power_base(size_t ndigits, long long long_n, int n_base);
+static long long	ft_get_max_power_base(size_t ndigits,
+						long long long_n, int n_base);
 
-static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, int n_base)
+static char	*ft_ibasetoa_mem(long long *n_long, int *negative,
+				size_t *nchars, int n_base)
 {
 	char	*retval;
 	long	n_longcopy;
@@ -44,7 +47,8 @@ static char	*ft_ibasetoa_mem(long long *n_long, int *negative, size_t *nchars, i
 	return (retval);
 }
 
-static long long	ft_get_max_power_base(size_t ndigits, long long long_n, int n_base)
+static long long	ft_get_max_power_base(size_t ndigits, long long long_n,
+						int n_base)
 {
 	long long	power;
 	size_t		ichar;
@@ -63,9 +67,9 @@ static long long	ft_get_max_power_base(size_t ndigits, long long long_n, int n_b
 
 char	*ft_ibasetoa(long long n, int n_base)
 {
-	char	*retval;
-	int		neg;
-	size_t	nchars;
+	char		*retval;
+	int			neg;
+	size_t		nchars;
 	long long	n_long;
 	long long	power;
 

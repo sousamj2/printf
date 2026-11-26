@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 18:14:23 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/24 10:53:50 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:00:15 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_putstr_fd_n(const char *s, int fd, int n)
 {
-	int index;
+	int	index;
 
 	index = 0;
 	while (*s != '\0' && index < n)

@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 15:36:15 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 11:32:18 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:11:27 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdint.h>
-
 
 /**
  * @brief Tests for a digit (0 through 9).
@@ -132,7 +131,6 @@ void			ft_striteri(char *s, void (*f)(unsigned int, char*));
  * @return The converted integer value.
  */
 int				ft_atoi(const char *nptr);
-
 
 /**
  * @brief Allocates memory for an array of n elements of size bytes each and

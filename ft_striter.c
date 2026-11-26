@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 21:25:52 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 11:23:39 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:00:35 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@ void	ft_striter(char *s, int (*f)(int))
 {
 	while (*s != '\0')
 	{
-		*s = (char ) f( (unsigned char) *s);
+		*s = (char ) f((unsigned char)*s);
 		s++;
 	}
 }
