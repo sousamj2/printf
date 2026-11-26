@@ -6,11 +6,12 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 11:37:34 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/25 16:13:18 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 14:37:14 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdio.h>
 
 int ft_prinft(const char *format, ...)
@@ -72,19 +73,22 @@ int	ft_handle_vargs(char *cur, va_list *ap, int *retval)
 
 int ft_prenum_handler(long long *nb, t_format *fconf, t_fnum *fnum)
 {
-	fnum->prenum = "";
+	fnum->prenum = NULL;
 	if (fconf->opt == 'p' || (ft_tolower(fconf->opt) == 'x' && fconf->flag & FLAG_HASH))
-		fnum->prenum = "0x";
+		fnum->prenum = ft_strdup("0x");
 	else if (nb < 0)
 	{
 		*nb = - (*nb);
-		fnum->prenum = "-";
+		fnum->prenum = ft_strdup("-");
 	}
 	else if (fconf->flag & FLAG_PLUS)
-		fnum->prenum = "+";
+		fnum->prenum = ft_strdup("+");
 	else if (fconf->flag & FLAG_SPACE)
-		fnum->prenum = " ";
-	return (ft_strlen(fnum->prenum));
+		fnum->prenum = ft_strdup(" ");
+	if (fnum->prenum == NULL)
+		fnum->prenum = "";
+	fnum->len_prenum = ft_strlen(fnum->prenum);
+	return (fnum->len_prenum);
 }
 
 int ft_str_formatted(char *s, t_format *fconf)
@@ -124,7 +128,7 @@ void formated_number(long long nb, t_format *fconf, t_fnum *fnum)
     }    
 	else
 		fnum->num = ft_ibasetoa(nb, 10);
-	fnum->len = (int) ft_strlen(fnum->num) + ft_strlen(fnum->prenum);
+	fnum->len_num = (int) ft_strlen(fnum->num) ;
 }	
 
 /* '' (left-justified) < '0' (left zeros) < '-' (left spaces)*/
@@ -138,20 +142,23 @@ int ft_itoa_formatted(long long nb, t_format *fconf)
 	t_fnum fnum;
 
 	formated_number(nb, fconf, &fnum);
-	if (fconf->prec + (int) ft_strlen(fnum.prenum) > fnum.len )
-		fnum.nzeros = fconf->prec - fnum.len + ft_strlen(fnum.prenum);
-	if (fconf->width > fnum.len)
-		fnum.nspaces = fconf->width - fnum.len - fnum.nzeros;
+	if (fconf->prec + fnum.len_prenum > fnum.len_num )
+		fnum.nzeros = fconf->prec - fnum.len_num ;//+ fnum.len_prenum;
+	if (fconf->width > fnum.len_num)
+		fnum.nspaces = fconf->width - fnum.len_num - fnum.nzeros - fnum.len_prenum;
 	if (!(fconf->flag & FLAG_MINUS))
 		ft_putchars_n_fd(' ', 1, fnum.nspaces);
 	ft_putstr_fd(fnum.prenum, 1);
-	if (fconf->flag & FLAG_ZERO || fconf->prec + (int) ft_strlen(fnum.prenum) > fnum.len)
+	if (fconf->flag & FLAG_ZERO || (fconf->prec + fnum.len_prenum) > fnum.len_num)
 		ft_putchars_n_fd('0', 1, fnum.nzeros);
 	ft_putstr_fd(fnum.num, 1);
 	if (fconf->flag & FLAG_MINUS)
 		ft_putchars_n_fd(' ', 1, fnum.nspaces);
-	free(fnum.num);
-	return (fnum.len + fnum.nspaces + fnum.nzeros + (fconf->prec > fconf->width + (int) ft_strlen(fnum.prenum) )*(fconf->prec - fconf->width - (int) ft_strlen(fnum.prenum)));
+    free(fnum.num);
+	if (fnum.prenum != NULL && ft_strlen(fnum.prenum) > 0)
+		free(fnum.prenum);
+	return (fnum.len_num + fnum.nspaces + fnum.nzeros + fnum.len_prenum);
+			/* + (fconf->prec > (fconf->width + fnum.len_prenum) && fnum.len_prenum > 0)*(fconf->prec - fconf->width - fnum.len_prenum)); */
 }
 
 char	*ft_next_conv(char *c, t_format *fconf)

@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 11:37:44 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/25 14:43:49 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 11:57:43 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ typedef struct s_fnum {
 	char	*num;
 	int		nzeros;
 	int		nspaces;
-	int		len;
+	int		len_num;
+	int		len_prenum;
 } t_fnum;
 
 char *ft_ibasetoa(long long n, int n_base);

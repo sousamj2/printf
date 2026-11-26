@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/25 15:36:15 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/24 11:34:11 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 11:32:18 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,5 +163,24 @@ void			*ft_memset(void *s, int c, size_t n);
  * @param n Number of bytes to set to zero.
  */
 void			ft_bzero(void *s, size_t n);
+
+/**
+ * @brief Duplicates the string s by allocating sufficient memory with malloc.
+ *
+ * @param s String to duplicate.
+ * @return Pointer to the duplicate string, or NULL if allocation fails.
+ */
+char			*ft_strdup(const char *s);
+
+/**
+ * @brief Copies up to size - 1 characters from the null-terminated string src
+ * to dst, null-terminating the result if size is not zero.
+ *
+ * @param dst Destination buffer.
+ * @param src Source string to copy.
+ * @param size Total size of the destination buffer.
+ * @return Total length of the string attempted to be created (length of src).
+ */
+size_t			ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif
