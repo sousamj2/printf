@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 11:37:44 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 16:21:09 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 22:50:56 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,5 @@ int		ft_printf(const char *format, ...);
 char	*ft_next_conv(char *format, t_format *fconf);
 void	ft_putchars_n_fd(const char c, int fd, int n);
 void	ft_putstr_fd_n(const char *s, int fd, int n);
+int		ft_char_formatted(int c);
 #endif

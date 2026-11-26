@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:46:23 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 17:05:41 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 22:43:18 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ int	ft_itoa_formatted(long long nb, t_format *fconf)
 {
 	t_fnum	fnum;
 
+	if (fconf->opt == 'p' && nb == 0)
+	{
+		ft_putstr_fd("(nil)", 1);
+		return (5);
+	}
 	formated_number(nb, fconf, &fnum);
 	if (fconf->prec + fnum.len_prenum > fnum.len_num)
 		fnum.nzeros = fconf->prec - fnum.len_num ;

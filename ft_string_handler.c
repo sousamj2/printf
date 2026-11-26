@@ -6,12 +6,18 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:47:54 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 17:05:15 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 22:50:41 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
+
+int	ft_char_formatted(int c)
+{
+	ft_putchar_fd(c, 1);
+	return (1);
+}
 
 int	ft_str_formatted(char *s, t_format *fconf)
 {

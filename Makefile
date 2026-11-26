@@ -6,12 +6,13 @@
 #    By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/05 11:20:42 by marisous          #+#    #+#              #
-#    Updated: 2026/11/26 16:59:43 by marisous         ###   ########.fr        #
+#    Updated: 2026/11/26 23:21:26 by marisous         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror $(addprefix -I, $(INC_FOLDERS))
+CFLAGS	= -Wall -Wextra $(addprefix -I, $(INC_FOLDERS))
 CFLAGS	+= -g -O0
 
 NAME	= libftprintf.a
