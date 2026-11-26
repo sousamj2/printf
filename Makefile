@@ -6,12 +6,12 @@
 #    By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/11/05 11:20:42 by marisous          #+#    #+#              #
-#    Updated: 2026/11/26 16:18:04 by marisous         ###   ########.fr        #
+#    Updated: 2026/11/26 16:59:43 by marisous         ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 CC	= cc
-CFLAGS	= -Wall -Wextra $(addprefix -I, $(INC_FOLDERS))
+CFLAGS	= -Wall -Wextra -Werror $(addprefix -I, $(INC_FOLDERS))
 CFLAGS	+= -g -O0
 
 NAME	= libftprintf.a
@@ -26,7 +26,9 @@ PART_1	= 	strlen memset bzero toupper tolower \
 		strnstr atoi calloc isdigit atoi strlcpy \
 		strdup itoa putchar_fd putstr_fd strncmp	
 
-PART_2	= 	ibasetoa max putchars_n_fd putstr_fd_n striter printf
+PART_2	= 	ibasetoa striter \
+		number_handler string_handler variadic_handler \
+		printf
 
 SRCS1	=	$(addsuffix .c, $(addprefix ft_, $(PART_1)))
 SRCS2	=	$(addsuffix .c, $(addprefix ft_, $(PART_2)))

@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/23 11:37:44 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 16:15:01 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:21:09 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	formated_number(long long nb, t_format *fconf, t_fnum *fnum);
 int		ft_str_formatted(char *s, t_format *fconf);
 int		ft_prenum_handler(long long *nb, t_format *fconf, t_fnum *fnum);
 int		ft_handle_vargs(char *format, va_list *ap, int *retval);
-int		ft_prinft(const char *format, ...);
+int		ft_printf(const char *format, ...);
 char	*ft_next_conv(char *format, t_format *fconf);
 void	ft_putchars_n_fd(const char c, int fd, int n);
 void	ft_putstr_fd_n(const char *s, int fd, int n);
