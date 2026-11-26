@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:46:23 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 16:47:32 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 17:05:41 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_prenum_handler(long long *nb, t_format *fconf, t_fnum *fnum)
 	fnum->len_prenum = ft_strlen(fnum->prenum);
 	return (fnum->len_prenum);
 }
-
 
 void	formated_number(long long nb, t_format *fconf, t_fnum *fnum)
 {

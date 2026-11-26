@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:47:54 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 16:56:55 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 17:05:15 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	ft_str_formatted(char *s, t_format *fconf)
 		ft_putchars_n_fd(' ', 1, nspaces);
 	return (len + nspaces);
 }
-
 
 void	ft_putstr_fd_n(const char *s, int fd, int n)
 {

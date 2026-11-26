@@ -6,13 +6,12 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:51:31 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 16:52:00 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/26 17:05:27 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
-
 
 int	ft_handle_vargs(char *cur, va_list *ap, int *retval)
 {
