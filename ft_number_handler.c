@@ -6,7 +6,7 @@
 /*   By: marisous <marisous@student.42lisb...>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/26 16:46:23 by marisous          #+#    #+#             */
-/*   Updated: 2026/11/26 22:43:18 by marisous         ###   ########.fr       */
+/*   Updated: 2026/11/27 00:03:37 by marisous         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_prenum_handler(long long *nb, t_format *fconf, t_fnum *fnum)
 	if (fconf->opt == 'p'
 		|| (ft_tolower(fconf->opt) == 'x' && fconf->flag & FLAG_HASH))
 		fnum->prenum = ft_strdup("0x");
-	else if (*nb < 0)
+	else if (*nb < 0 && fconf->opt == 'd')
 	{
 		*nb = - (*nb);
 		fnum->prenum = ft_strdup("-");
@@ -41,13 +41,15 @@ void	formated_number(long long nb, t_format *fconf, t_fnum *fnum)
 	ft_prenum_handler(&nb, fconf, fnum);
 	if (fconf->opt == 'p' || ft_tolower(fconf->opt) == 'x')
 	{
-		fnum->num = ft_ibasetoa(nb, 16);
+		fnum->num = ft_ibasetoa((unsigned long long)nb, 16);
 		if (fconf->opt == 'X')
 		{
 			ft_striter(fnum->prenum, ft_toupper);
 			ft_striter(fnum->num, ft_toupper);
 		}
 	}
+	else if (fconf->opt == 'u')
+		fnum->num = ft_ibasetoa(nb, 10);
 	else
 		fnum->num = ft_ibasetoa(nb, 10);
 	fnum->len_num = (int) ft_strlen(fnum->num);
